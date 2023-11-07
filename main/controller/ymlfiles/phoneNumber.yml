@@ -1,0 +1,39 @@
+---
+parameters:
+  - name: phone_number
+    in: path
+    type: string
+    required: true
+    description: enter mobile number with 0 at the first- without country code (e.g 0912)
+responses:
+  200:
+    description: successful transaction. result will be True(means this phone number registered before) or False(does not register before)
+    schema:
+      id: status200
+      properties:
+        message:
+          type: string
+          description: empty string
+        result:
+          type: boolean
+          description: true or false
+        status:
+          type: string
+          description: ok
+        statusCode:
+          type: integer
+          description: 200
+  400:
+    description: bad request(validation error). input parameters format is not correct.
+    schema:
+      id: status400
+      properties:
+        message:
+          type: string
+          description: reaction to user action
+        status:
+          type: string
+          description: nok
+        statusCode:
+          type: integer
+          description: 400

@@ -1,0 +1,39 @@
+---
+parameters:
+  - name: code
+    in: path
+    type: integer
+    required: true
+    description: enter user national code with 10 characters.
+responses:
+  200:
+    description: successful transaction. result will be True(means this national code registered before) or False(does not register before)
+    schema:
+      id: status200
+      properties:
+        message:
+          type: string
+          description: empty string
+        result:
+          type: boolean
+          description: true or false
+        status:
+          type: string
+          description: ok
+        statusCode:
+          type: integer
+          description: 200
+  400:
+    description: bad request(validation error). input parameters format is not correct.
+    schema:
+      id: status400
+      properties:
+        message:
+          type: string
+          description: reaction to user action
+        status:
+          type: string
+          description: nok
+        statusCode:
+          type: integer
+          description: 400
